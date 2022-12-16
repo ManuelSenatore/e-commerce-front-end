@@ -10,6 +10,18 @@ export const SET_ORDER_LIST = "SET_ORDER_LIST";
 export const REMOVE_TO_ORDER = "REMOVE_TO_ORDER";
 export const SET_LOGIN_FLAG_TRUE = "SET_LOGIN_FLAG_TRUE";
 export const SET_LOGIN_FLAG_FALSE = "SET_LOGIN_FLAG_FALSE";
+export const SET_LOADING_TRUE = "SET_LOADING_TRUE";
+export const SET_LOADING_FALSE = "SET_LOADING_FALSE";
+
+export const setLoadingTrue = () => ({
+  type: SET_LOADING_TRUE,
+  payload: true
+})
+
+export const setLoadingFalse = () => ({
+  type: SET_LOADING_FALSE,
+  payload: false
+})
 
 export const setLoginFlagTrue = () => ({
   type: SET_LOGIN_FLAG_TRUE,
@@ -183,12 +195,14 @@ export const orderingCategoriaList = (categoria, value) => {
   const baseEndpoint = `http://localhost:8080/api/prodotti/categoria/${categoria}/${value}`;
   return async (dispatch ) => {
       try {
+          dispatch(setLoadingTrue())
           const response = await fetch ( baseEndpoint , {
               method : "GET" ,
           } );
           if ( response.ok ) {
               const data = await response.json ();
               dispatch(orderCategoriaList(data))
+              dispatch(setLoadingFalse())
           } else {
               console.log ( "Error fetching results" );
           }

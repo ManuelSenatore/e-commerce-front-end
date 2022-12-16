@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import OrderCard from '../OrderCard';
 import { useEffect } from 'react';
 
+// PAGINA PROFILO DEL CLIENTE DOVE VENGONO SALVATI GLI ORDINI EFFETTUATI
+
 const AccountComponent = () => {
     const orderList = useSelector((state) => state.order.orderList);
     const navigate = useNavigate()

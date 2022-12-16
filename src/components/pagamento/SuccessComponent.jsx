@@ -1,10 +1,12 @@
-import { Button } from '@mui/material';
-import React from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
-import { useNavigate } from 'react-router-dom';
+import { Button } from "@mui/material";
+import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from 'react';
-import { getCarrelloList, setOrderList } from '../../redux/actions/actions';
+import { useEffect } from "react";
+import { getCarrelloList, setOrderList } from "../../redux/actions/actions";
+
+// COMPONENTE DOVE SI VIENE INDIRIZZATI NEL CASO DI PAGAMENTO CON SUCCESSO CHE SI OCCUPA DI SVUOTARE IL CARRELLO E SALVARE L'ORDINE EFFETTUATO NELLA PROFILO DEL CLIENTE
 
 const SuccessComponent = () => {
   const navigate = useNavigate();
@@ -23,7 +25,7 @@ const SuccessComponent = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
-  
+
   const removeToCarrello = async (elementoId) => {
     const baseEndpoint = `http://localhost:8080/api/carrello/delete/${elementoId}/${user.id}`;
 
@@ -48,27 +50,27 @@ const SuccessComponent = () => {
       console.log(error);
     }
   };
-  
+
   useEffect(() => {
-    dispatch(setOrderList(carrelloList))
-    carrelloList.cartItems.forEach(element => {
-      removeToCarrello(element.id)
+    dispatch(setOrderList(carrelloList));
+    carrelloList.cartItems.forEach((element) => {
+      removeToCarrello(element.id);
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Container className="pageContainer">
       <Row>
         <Col>
-        <div className="text-center">
-          <h2>PAGAMENTO EFFETTUATO CON SUCCESSO</h2>
-          <Button onClick={() => navigate("/")}>Torna alla Home</Button>
-        </div>
+          <div className="text-center">
+            <h2>PAGAMENTO EFFETTUATO CON SUCCESSO</h2>
+            <Button onClick={() => navigate("/")}>Torna alla Home</Button>
+          </div>
         </Col>
       </Row>
     </Container>
   );
-}
+};
 
-export default SuccessComponent
+export default SuccessComponent;

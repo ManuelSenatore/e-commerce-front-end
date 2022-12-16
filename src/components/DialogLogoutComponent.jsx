@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Button,
   Dialog,
   DialogActions,
-  DialogContent,
-  DialogContentText,
   DialogTitle,
   Slide,
 } from "@mui/material";
@@ -15,6 +13,8 @@ import SnackbarSuccess from "./SnackBarSuccess";
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
+
+// COMPONENTE CHE VIENE VISUALIZZATO QUANDO SI EFFETTUA IL LOGOUT
 
 const DialogLogoutComponent = (props) => {
   const dispatch = useDispatch();

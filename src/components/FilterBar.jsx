@@ -1,6 +1,8 @@
 import React from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Container, Row, Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+
+// COMPONENTE CHE RIGUARDA IL FILTRAGGIO DELL'ARRAY CONTENUTO NELLE CATEGORIE
 
 const FilterBar = () => {
   const navigate = useNavigate();

@@ -6,6 +6,8 @@ import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import DialogComponent from "./DialogComponent";
 
+// ICONA CHE SI OCCUPA DI AGGIUNGERE UN PRODOTTO ALLA LISTA PREFERITI, UTILIZZATO IN PIù COMPONENTI
+
 const LikeComponent = (props) => {
   const user = useSelector((state) => state.user.user);
   const token = useSelector((state) => state.user.user.token);

@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import DialogComponent from "./DialogComponent";
 import { useState } from "react";
 
+// BOTTONE PER L'AGGIUNTA DI UN PRODOTTO AL CARRELLO
 
 const ButtonAcquistaComponent = (props) => {
   const [loading, setLoading] = React.useState(false);

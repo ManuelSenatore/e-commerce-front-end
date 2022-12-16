@@ -1,5 +1,8 @@
 import React from 'react'
 import { Col, Card } from 'react-bootstrap'
+
+// CARD PRODOTTO UTILIZZATA NELL ORDINE
+
 const ProdottoOrdineCard = (props) => {
   return (
     <Col className="mb-3" xs={12}>

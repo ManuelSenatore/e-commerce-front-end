@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
+// COMPONENTE DINAMICO CHE CAMBIA A SECONDA DELLA CATEGORIA
+
 function BackImageComponent() {
   const [title, setTitle] = useState("");
   const location = useLocation();

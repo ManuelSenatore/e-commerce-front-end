@@ -1,11 +1,14 @@
 import React from "react";
-import { Col, Button, Card } from "react-bootstrap";
+import { Col, Card } from "react-bootstrap";
 import { MdDeleteForever } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getPreferitiList } from "../redux/actions/actions";
 import ButtonAcquistaComponent from "./ButtonAcquistaComponent";
 import LoadingComponent from "./LoadingComponent";
+
+// CARD PRODOTTO UTILIZZATA NEL COMPONENTE DEI PREFERITI
+
 const PreferitoCard = (props) => {
   const user = useSelector((state) => state.user.user);
   const token = useSelector((state) => state.user.user.token);

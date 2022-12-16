@@ -4,18 +4,17 @@ import {
     Dialog ,
     DialogActions ,
     DialogContent ,
-    DialogContentText ,
     DialogTitle ,
     Slide
 } from "@mui/material";
-import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import ProdottoOrdineCard from './ProdottoOrdineCard';
 
 
 const Transition = React.forwardRef ( function Transition(props , ref) {
     return <Slide direction="up" ref={ ref } { ...props } />;
 } );
+
+// MODALE CHE MOSTRA I PRODOTTI ACQUISTATI IN UN DETERMINATO ORDINE
 
 const ModalQuantityComponent = (props) => {
 

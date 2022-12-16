@@ -5,6 +5,9 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Col, Container, Row, Button } from "react-bootstrap";
 import CarrelloCard from "./CarrelloCard";
+
+// COMPONENTE CARRELLO DOVE VENGONO AGGIUNTI I PRODOTTI ,SEGNALA IL PREZZO TOTALE E REINDIRIZZA ALLA PAGINA CHECKOUT
+
 const CarrelloComponent = () => {
   const user = useSelector((state) => state.user.user);
   const carrelloList = useSelector((state) => state.carrello.carrelloList);

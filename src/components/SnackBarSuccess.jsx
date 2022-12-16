@@ -1,5 +1,8 @@
 import React from "react";
 import { Alert, Snackbar } from "@mui/material";
+
+// SNACK BAR UTILIZZATA NEL CASO DI LOGOUT DI UN UTENTE
+
 const SnackbarSuccess = ({ openFlag, closeFunction, message }) => {
   return (
     <Snackbar

@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { Col, Container, Row, Button } from "react-bootstrap";
 import PreferitoCard from "./PreferitoCard";
 
+// COMPONENTE DOVE L'UTENTE VISUALIZZA GLI ARTICOLI AGGIUNTI AI PREFERITI
+
 const WishListComponent = () => {
   const user = useSelector((state) => state.user.user);
   const preferitiList = useSelector((state) => state.preferiti.preferitiList);

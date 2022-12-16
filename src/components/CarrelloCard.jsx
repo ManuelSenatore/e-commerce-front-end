@@ -9,6 +9,8 @@ import { useEffect } from "react";
 import ClearIcon from "@mui/icons-material/Clear";
 import LoadingComponent from "./LoadingComponent";
 
+// CARD DEL CARRELLO DOVE è POSSIBILE SETTARE LA QUANTITà ED ELIMINARLO DAL CARRELLO
+
 const CarrelloCard = (props) => {
   const user = useSelector((state) => state.user.user);
   const token = useSelector((state) => state.user.user.token);

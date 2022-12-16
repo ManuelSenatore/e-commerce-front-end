@@ -3,6 +3,8 @@ import { useMemo } from "react";
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api";
 import { Col, Container, Row, Spinner } from "react-bootstrap";
 
+// COMPONENTE DOVE è STATO UTILIZZATO GOOGLE MAPS
+
 const MapsComponent = () => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_NEXT_PUBLIC_MAP_API_KEY,

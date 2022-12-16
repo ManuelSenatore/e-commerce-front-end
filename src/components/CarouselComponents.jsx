@@ -2,6 +2,8 @@ import { Button } from '@mui/material';
 import Carousel from 'react-bootstrap/Carousel';
 import { useNavigate } from 'react-router-dom'
 
+// SLIDER DI IMMAGINI POSIZIONATO NELLA HOME ALL'INIZIO DELLA PAGINA
+
 function CarouselComponents() {
   const navigate = useNavigate();
 

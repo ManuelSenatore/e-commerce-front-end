@@ -3,6 +3,8 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
+// COMPONENTE NEL CASO IL PAGAMENTO DEL CLIENTE NON VA A BUON FINE CHE TI REINDIRIZZA AL CARRELLO
+
 const FailureComponent = () => {
   const navigate = useNavigate();
 

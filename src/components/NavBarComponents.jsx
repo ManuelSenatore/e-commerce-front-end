@@ -18,18 +18,17 @@ import {
   getCarrelloList,
   getPreferitiList,
   getProdottoList,
-  logout,
 } from "../redux/actions/actions";
 import { useEffect } from "react";
 import SearchBarComponent from "./SearchBarComponent";
 import DialogLogoutComponent from "./DialogLogoutComponent";
-import SnackbarSuccess from "./SnackBarSuccess";
+
+// NAV BAR DELLA PAGINA
 
 export default function NavBarComponents() {
   const user = useSelector((state) => state.user.user);
   const preferitiList = useSelector((state) => state.preferiti.preferitiList);
   const carrelloList = useSelector((state) => state.carrello.carrelloList);
-  const prodottoList = useSelector((state) => state.prodotto.prodottoList);
   const token = useSelector((state) => state.user.user.token);
   const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = React.useState(null);

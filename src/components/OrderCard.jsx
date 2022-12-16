@@ -4,7 +4,9 @@ import ModalQuantityComponent from "./ModalQuantityComponent";
 import ProdottoOrdineCard from "./ProdottoOrdineCard";
 import ClearIcon from "@mui/icons-material/Clear";
 import { useDispatch } from "react-redux";
-import { removeOrder } from "../redux/actions/actions";
+import DialogDeleteComponent from "./DialogDeleteComponent";
+
+// CARD PRODOTTO UTILIZZATA NEL MODALE DI TUTTI I PRODOTTI ACQUISTATI IN UN DETERMINATO ORDINE
 
 const OrderCard = (props) => {
   const dispatch = useDispatch();
@@ -17,6 +19,14 @@ const OrderCard = (props) => {
   const handleClose = () => {
     setDialogFlag(false);
   };
+
+  const [ dialogEliminazioneFlag , setDialogEliminazioneFlag ] = useState (false);
+    const handleOpen = () => {
+        setDialogEliminazioneFlag(true);
+    };
+    const handleClosed = () => {
+        setDialogEliminazioneFlag(false);
+    };
   
   return (
     <Col className="mb-3 d-flex flex-column justify-content-center align-items-center w-100" xs={12}>
@@ -25,6 +35,11 @@ const OrderCard = (props) => {
         handleClose={handleClose}
         prodotto={props.order}
       />
+      <DialogDeleteComponent 
+        dialogEliminazioneFlag={dialogEliminazioneFlag}
+        handleClose = {handleClosed}
+        i = {props.i}
+      />  
       <Card
         className="cardProdotto cardCarrello d-flex flex-row align-items-center"
         style={{ maxWidth: "100rem" }}
@@ -74,7 +89,7 @@ const OrderCard = (props) => {
         <ClearIcon
           className="deleteIconOrder"
           onClick={() => {
-            dispatch(removeOrder(props.i))
+            handleOpen()
           }}
           style={{ cursor: "pointer", color: "red" }}
         />

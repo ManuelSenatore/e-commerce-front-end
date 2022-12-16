@@ -1,19 +1,19 @@
 import { Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { getCarrelloList, setOrderList } from "../../redux/actions/actions";
+import { useSelector } from "react-redux";
 import axios from "axios";
 
+// COMPONENTE CHE SI OCCUPA DI EFFETTUARE L'INDIRIZZAMENTO AL PAGAMENTO STRIPE TRAMITE IL CARRELLO DEL CLIENTE E UNA FETCH EFFETTUATA CON AXIOS
+
 const CheckoutComponent = () => {
-  const user = useSelector((state) => state.user.user);
   const carrelloList = useSelector((state) => state.carrello.carrelloList);
   const token = useSelector((state) => state.user.user.token);
-  const [stripeAPIToken, setStripeAPIToken] = useState('pk_test_51MAZRAGV0q5KZpMHJTZNyI5J3jePtF1Q2mTv2zyGFZnRuseaVlbUTSi1ab8mEBx046lfHkIrgONmyllDOVsPbCbs00SHEqnQaJ')
-  const dispatch = useDispatch();
-  const [checkoutBodyArray, setCheckoutBodyArray] = useState([])
-  const [stripe, setStripe] = useState(window.Stripe(stripeAPIToken))
+  const [stripeAPIToken, setStripeAPIToken] = useState(
+    "pk_test_51MAZRAGV0q5KZpMHJTZNyI5J3jePtF1Q2mTv2zyGFZnRuseaVlbUTSi1ab8mEBx046lfHkIrgONmyllDOVsPbCbs00SHEqnQaJ"
+  );
+  const [checkoutBodyArray, setCheckoutBodyArray] = useState([]);
+  const [stripe, setStripe] = useState(window.Stripe(stripeAPIToken));
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -34,12 +34,12 @@ const CheckoutComponent = () => {
       .post(
         `http://localhost:8080/order/create-checkout-session`,
         checkoutBodyArray,
-        {headers: {"Authorization" : `Bearer ${token}`}}
+        { headers: { Authorization: `Bearer ${token}` } }
       )
       .then((response) => {
         localStorage.setItem("sessionId", response.data.sessionId);
         console.log("session", response.data);
-        stripe.redirectToCheckout({sessionId: response.data.sessionId})
+        stripe.redirectToCheckout({ sessionId: response.data.sessionId });
       })
       .catch((err) => console.log(err));
   };

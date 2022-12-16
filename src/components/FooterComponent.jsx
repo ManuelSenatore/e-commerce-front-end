@@ -5,6 +5,8 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import { IconButton } from "@mui/material";
 
+// FOOTER DELLA PAGINA
+
 const FooterComponent = () => {
   return (
     <>

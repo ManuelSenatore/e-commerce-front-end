@@ -5,6 +5,8 @@ import { useState } from "react";
 import { getCategoriaList, orderingCategoriaList } from "../redux/actions/actions";
 import { useLocation } from "react-router-dom";
 
+// COMPONENTE UTILIZZATO NELLE PAGINE CATEGORIA CHE AL CLICK CAMBIA L'ORDINE DEI PRODOTTI
+
 const OrderByComponent = () => {
   const categoriaList = useSelector((state) => state.categoria.categoriaList);
   const dispatch = useDispatch();

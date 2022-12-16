@@ -1,8 +1,10 @@
 import React from "react";
-import { Card, Button, Col } from "react-bootstrap";
+import { Card, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import ButtonAcquistaComponent from "./ButtonAcquistaComponent";
 import LikeComponent from "./LikeComponent";
+
+// CARD PRODOTTO UTILIZZATA NELLA HOME E NELLE CATEGORIE
 
 const ProdottoCard = (props) => {
   const navigate = useNavigate();

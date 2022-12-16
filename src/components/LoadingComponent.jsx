@@ -1,7 +1,8 @@
 import React from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import Dialog from '@mui/material/Dialog';
-import { DialogActions } from "@mui/material";
+
+// COMPONENTE LOADING
 
 const LoadingComponent = (props) => {
   return (

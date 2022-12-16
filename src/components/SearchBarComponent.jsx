@@ -6,6 +6,8 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 
+// SEARCH BAR UTILIZZATA NELLA NAV BAR
+
 export default function SearchBarComponent() {
   const prodottoList = useSelector((state) => state.prodotto.prodottoList);
   const navigate = useNavigate();

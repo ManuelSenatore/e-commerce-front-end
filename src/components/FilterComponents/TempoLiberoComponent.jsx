@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Col, Container, Row, Button } from "react-bootstrap";
+import { Container, Row} from "react-bootstrap";
 import ProdottoCard from "../ProdottoCard";
 import { getCategoriaList } from "../../redux/actions/actions";
 import BackImageComponent from "./BackImageComponent";
 import FilterBar from "../FilterBar";
 import OrderByComponent from "../OrderByComponent";
+
+// COMPONENTE CATEGORIA TEMPO LIBERO
 
 const TempoLiberoComponent = () => {
   const categoriaList = useSelector((state) => state.categoria.categoriaList);

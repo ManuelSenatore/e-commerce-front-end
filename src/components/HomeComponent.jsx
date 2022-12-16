@@ -7,6 +7,8 @@ import FilterBar from "./FilterBar";
 import MapsComponent from "./MapsComponent";
 import ProdottoCard from "./ProdottoCard";
 
+// HOME DELLA PAGINA
+
 const HomeComponent = () => {
   const prodottoList = useSelector((state) => state.prodotto.prodottoList);
   const dispatch = useDispatch();

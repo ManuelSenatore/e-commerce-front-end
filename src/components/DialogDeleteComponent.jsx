@@ -3,21 +3,22 @@ import {
     Button ,
     Dialog ,
     DialogActions ,
+    DialogContent ,
+    DialogContentText ,
     DialogTitle ,
     Slide
 } from "@mui/material";
-import { useNavigate } from 'react-router-dom';
-
+import { useDispatch } from 'react-redux';
+import { removeOrder } from '../redux/actions/actions';
 
 const Transition = React.forwardRef ( function Transition(props , ref) {
     return <Slide direction="up" ref={ ref } { ...props } />;
 } );
 
-// COMPONENTE UTILIZZATO NEL CASO DI CLICK SU AGGIUNTA AI PREFERITI O AL CARRELLO QUANDO L'UTENTE NON è LOGGATO
+// COMPONENTE UTILIZZATO ALL'ELIMINIZIONE DELL'ORDINE EFFETTUATO
 
-const DialogComponent = (props) => {
-    const navigate = useNavigate();
-
+const DialogDeleteComponent = (props) => {
+    const dispatch = useDispatch()
     return (
         <Dialog
             open={ props.dialogEliminazioneFlag }
@@ -27,7 +28,12 @@ const DialogComponent = (props) => {
             keepMounted
             aria-describedby="alert-dialog-slide-description"
         >
-            <DialogTitle>{ "Per continuare questa azione devi essere loggato." }</DialogTitle>
+            <DialogTitle>{ "Sei sicuro di voler eliminare l'elemento?" }</DialogTitle>
+            <DialogContent>
+                <DialogContentText id="alert-dialog-slide-description">
+                    L'azione sarà irreversibile.
+                </DialogContentText>
+            </DialogContent>
             <DialogActions>
                 <Button
                     variant={ "outlined" }
@@ -38,12 +44,12 @@ const DialogComponent = (props) => {
                     variant={ "outlined" }
                     color={ "primary" }
                     onClick={ () => {
-                        navigate("/login")
+                        dispatch(removeOrder(props.i))
                     } }
-                >Vai al Login</Button>
+                >Elimina</Button>
             </DialogActions>
         </Dialog>
     );
 };
 
-export default DialogComponent;
+export default DialogDeleteComponent;

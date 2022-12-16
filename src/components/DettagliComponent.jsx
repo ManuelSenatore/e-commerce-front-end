@@ -6,6 +6,8 @@ import ButtonAcquistaComponent from "./ButtonAcquistaComponent";
 import LikeComponent from "./LikeComponent";
 import ReactImageMagnify from 'react-image-magnify';
 
+// PAGINA PER I DETTAGLI DEL PRODOTTO DOVE è STATO UTILIZZATA UNA LIBRERIA PER FARE LO ZOOM SULL'IMMAGINE
+
 const DettagliComponent = () => {
   const [data, setData] = useState(null);
   const params = useParams();

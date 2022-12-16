@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { Container, Button, Form, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
+// COMPONENTE CHE SI OCCUPA DELLA REGISTRAZIONE DELL'UTENTE
+
 const SignUpComponent = () => {
   const navigate = useNavigate();
   const [ripetiPassword, setRipetiPassword] = useState("");

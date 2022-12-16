@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Form, Button, Container, Row, Card } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { logIn } from "../redux/actions/actions";
+import { logIn } from "../../redux/actions/actions";
 import GoogleLogin from "react-google-login";
 import { gapi } from "gapi-script";
 import { Alert } from "@mui/material";

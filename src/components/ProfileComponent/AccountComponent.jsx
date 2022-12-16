@@ -2,7 +2,7 @@ import React from 'react'
 import { Container, Col, Button, Row } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
-import OrderCard from './OrderCard';
+import OrderCard from '../OrderCard';
 import { useEffect } from 'react';
 
 const AccountComponent = () => {

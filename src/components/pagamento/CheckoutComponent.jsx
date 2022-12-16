@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getCarrelloList, setOrderList } from "../redux/actions/actions";
+import { getCarrelloList, setOrderList } from "../../redux/actions/actions";
 import axios from "axios";
 
 const CheckoutComponent = () => {

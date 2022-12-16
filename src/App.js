@@ -9,20 +9,20 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBarComponents from "./components/NavBarComponents";
 import { Container } from "react-bootstrap";
 import HomeComponent from "./components/HomeComponent";
-import LoginComponent from "./components/LoginComponent";
-import SignUpComopnent from "./components/SignUpComponent";
+import LoginComponent from "./components/ProfileComponent/LoginComponent";
+import SignUpComopnent from "./components/ProfileComponent/SignUpComponent";
 import WishListComponent from "./components/WishListComponent";
 import CarrelloComponent from "./components/CarrelloComponent";
 import SuccessComponent from "./components/pagamento/SuccessComponent";
 import FailureComponent from "./components/pagamento/FailureComponent";
-import CheckoutComponent from "./components/CheckoutComponent";
+import CheckoutComponent from "./components/pagamento/CheckoutComponent";
 import DettagliComponent from "./components/DettagliComponent";
 import FooterComponent from "./components/FooterComponent";
 import ScuolaComponent from "./components/FilterComponents/ScuolaComponent";
 import CancelleriaComponent from "./components/FilterComponents/CancelleriaComponent";
 import UfficioComponent from "./components/FilterComponents/UfficioComponent";
 import TempoLiberoComponent from "./components/FilterComponents/TempoLiberoComponent";
-import AccountComponent from "./components/AccountComponent";
+import AccountComponent from "./components/ProfileComponent/AccountComponent";
 
 
 function App() {

@@ -20,6 +20,10 @@ function LoginComponent() {
   const clientId = process.env.REACT_APP_NEXT_PUBLIC_GOOGLE_API_KEY;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const start = () => {
       gapi.auth2.init({
         clientId: clientId,
@@ -101,7 +105,7 @@ function LoginComponent() {
     if (user.token) {
       navigate("/");
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user.token]);
 
   return (

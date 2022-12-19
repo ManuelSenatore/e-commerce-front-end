@@ -17,7 +17,6 @@ const OrderByComponent = () => {
   const location = useLocation();
   const loadFlag = useSelector((state) => state.categoria.loadingFlag);
 
-  console.log(loadFlag);
   const [formObj, setFormObj] = useState({
     // oggetto per la compilazione del form
     value: "",

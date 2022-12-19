@@ -17,7 +17,6 @@ const Transition = React.forwardRef ( function Transition(props , ref) {
 // MODALE CHE MOSTRA I PRODOTTI ACQUISTATI IN UN DETERMINATO ORDINE
 
 const ModalQuantityComponent = (props) => {
-
     return (
         <Dialog
             open={ props.dialogFlag }
@@ -30,7 +29,7 @@ const ModalQuantityComponent = (props) => {
             <DialogContent>
                 <DialogTitle className='text-center'>Prodotti Acquistati</DialogTitle>
                     {
-                        props.prodotto.cartItems.map((elemento, i) => {
+                        props.prodotto.carrelloList.cartItems.map((elemento, i) => {
                            return <ProdottoOrdineCard elemento={elemento} key={i} />
                         })
                     }

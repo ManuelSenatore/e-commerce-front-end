@@ -14,6 +14,13 @@ const SuccessComponent = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user);
   const token = useSelector((state) => state.user.user.token);
+  const userId = useSelector((state) => state.user.user.id);
+
+  let newOrder = {
+    carrelloList: carrelloList,
+    userId: userId
+  }
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -52,7 +59,7 @@ const SuccessComponent = () => {
   };
 
   useEffect(() => {
-    dispatch(setOrderList(carrelloList));
+    dispatch(setOrderList(newOrder));
     carrelloList.cartItems.forEach((element) => {
       removeToCarrello(element.id);
     });
@@ -65,7 +72,12 @@ const SuccessComponent = () => {
         <Col>
           <div className="text-center">
             <h2>PAGAMENTO EFFETTUATO CON SUCCESSO</h2>
+            <h5 className="mt-3">Grazie per averci preferito!!</h5>
+            <div className="d-flex flex-column mt-4">
+            <Button onClick={() => navigate("/account")} color="secondary">Visualizza Ordine</Button>
+            <h6 className="m-2">Oppure</h6>
             <Button onClick={() => navigate("/")}>Torna alla Home</Button>
+            </div>
           </div>
         </Col>
       </Row>

@@ -3,13 +3,14 @@ import { Col, Card } from "react-bootstrap";
 import ModalQuantityComponent from "./ModalQuantityComponent";
 import ProdottoOrdineCard from "./ProdottoOrdineCard";
 import ClearIcon from "@mui/icons-material/Clear";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import DialogDeleteComponent from "./DialogDeleteComponent";
 
 // CARD PRODOTTO UTILIZZATA NEL MODALE DI TUTTI I PRODOTTI ACQUISTATI IN UN DETERMINATO ORDINE
 
 const OrderCard = (props) => {
   const dispatch = useDispatch();
+  const userId = useSelector((state) => state.user.user.id)
   const [dialogFlag, setDialogFlag] = useState(false);
 
   const handleClickOpen = () => {
@@ -40,6 +41,8 @@ const OrderCard = (props) => {
         handleClose = {handleClosed}
         i = {props.i}
       />  
+      {
+        props.order.userId === userId && (
       <Card
         className="cardProdotto cardCarrello d-flex flex-row align-items-center"
         style={{ maxWidth: "100rem" }}
@@ -51,12 +54,12 @@ const OrderCard = (props) => {
             }}
             style={{ cursor: "pointer" }}
             variant="top"
-            src={props.order.cartItems[0].prodotto.immagineUrl}
+            src={props.order.carrelloList.cartItems[0].prodotto.immagineUrl}
           />
         </div>
         <Card.Body>
           <Card.Title>
-            Prodotti ordinati: {props.order.cartItems.length}
+            Prodotti ordinati: {props.order.carrelloList.cartItems.length}
           </Card.Title>
           <Card.Text
             onClick={() => {
@@ -69,20 +72,20 @@ const OrderCard = (props) => {
           </Card.Text>
           <Card.Text className="" style={{ fontWeight: "bolder" }}>
             Prezzo totale: 
-            {props.order.totalCost.toString().split(".")[0]},
-            {props.order.totalCost.toString().split(".")[1]
-              ? props.order.totalCost.toString().split(".")[1].slice(0, 2)
+            {props.order.carrelloList.totalCost.toString().split(".")[0]},
+            {props.order.carrelloList.totalCost.toString().split(".")[1]
+              ? props.order.carrelloList.totalCost.toString().split(".")[1].slice(0, 2)
               .length === 1
-              ? props.order.totalCost.toString().split(".")[1].slice(0, 2) +
+              ? props.order.carrelloList.totalCost.toString().split(".")[1].slice(0, 2) +
                   "0"
-                : props.order.totalCost.toString().split(".")[1].slice(0, 2) +
+                : props.order.carrelloList.totalCost.toString().split(".")[1].slice(0, 2) +
                   ""
                   : "00"}{" "}
             €
           </Card.Text>
           <Card.Text>Consegna stimata 5-7 giorni lavorativi</Card.Text>
-          {props.order.cartItems.map((prodotto, i) => {
-            <ProdottoOrdineCard prodotto={prodotto} key={i} />;
+          {props.order.carrelloList.cartItems.map((prodotto, i) => {
+             <ProdottoOrdineCard prodotto={prodotto} key={i} />;
           })}
         </Card.Body>
         <Card.Footer className="d-flex flex-column justify-content-flex-start align-items-start" style={{backgroundColor: 'white', border: 'none'}}>
@@ -95,6 +98,9 @@ const OrderCard = (props) => {
         />
         </Card.Footer>
       </Card>
+          
+        )
+      }
     </Col>
   );
 };

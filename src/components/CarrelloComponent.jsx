@@ -33,7 +33,7 @@ const CarrelloComponent = () => {
 
   return (
     <Container className="pageContainer">
-      <h2 style={{fontFamily: 'fantasy'}}>CARRELLO</h2>
+      <h2 style={{fontFamily: 'fantasy'}} className="titlePage">CARRELLO</h2>
       <Row className="display-flex justify-content-beetween">
         {carrelloList.cartItems.length === 0 ? (
           <Col className="d-flex flex-column justify-content-center align-items-center ">

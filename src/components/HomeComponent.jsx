@@ -29,7 +29,7 @@ const HomeComponent = () => {
       <CarouselComponents />
       <FilterBar />
       <Container>
-        <h1 className="text-center" style={{fontFamily: 'fantasy'}}>Ultimi Arrivi</h1>
+        <h1 className="text-center titlePage" style={{fontFamily: 'fantasy'}}>Ultimi Arrivi</h1>
         <Row className="display-flex justify-content-beetween">
           {ultimiArrivi.map((prodotto, i) => (
             <ProdottoCard key={i} prodotto={prodotto} />

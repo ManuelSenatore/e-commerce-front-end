@@ -5,6 +5,7 @@ import { getPreferitiList } from "../redux/actions/actions";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import DialogComponent from "./DialogComponent";
+import LoadingComponent from "./LoadingComponent";
 
 // ICONA CHE SI OCCUPA DI AGGIUNGERE UN PRODOTTO ALLA LISTA PREFERITI, UTILIZZATO IN PIù COMPONENTI
 
@@ -22,6 +23,16 @@ const LikeComponent = (props) => {
 
   const handleClose = () => {
     setDialogEliminazioneFlag(false);
+  };
+
+  const [loading, setLoadingComponent] = React.useState(false);
+
+  const loadingOn = () => {
+    setLoadingComponent(true);
+  };
+
+  const loadingOff = () => {
+    setLoadingComponent(false);
   };
 
   const addToFavorite = async (prodottoId) => {
@@ -47,8 +58,9 @@ const LikeComponent = (props) => {
         const data = await response.json();
         console.log(data);
         dispatch(getPreferitiList(token, user.id));
+        loadingOff();
       } else {
-        alert("Error fetching results");
+        console.log("Error fetching results");
       }
     } catch (error) {
       console.log(error);
@@ -71,8 +83,9 @@ const LikeComponent = (props) => {
         const data = await response.json();
         console.log(data);
         dispatch(getPreferitiList(token, user.id));
+        loadingOff();
       } else {
-        alert("Error fetching results");
+        console.log("Error fetching results");
       }
     } catch (error) {
       console.log(error);
@@ -80,25 +93,29 @@ const LikeComponent = (props) => {
   };
   return (
     <>
-      <DialogComponent dialogEliminazioneFlag = {dialogEliminazioneFlag} handleClose={handleClose}/>
+      <LoadingComponent loading={loading} loadingOff={loadingOff} />
+      <DialogComponent
+        dialogEliminazioneFlag={dialogEliminazioneFlag}
+        handleClose={handleClose}
+      />
       <FavoriteIcon
         style={{ cursor: "pointer", fontSize: "2rem", zIndex: "100" }}
         color={
           preferitiList.some((el) => el.id === props.prodotto.id) ? "error" : ""
         }
         onClick={() => {
-          console.log(preferitiList.find((el) => el.id === props.prodotto.id));
           if (preferitiList.some((el) => el.id === props.prodotto.id)) {
+            loadingOn()
             removeToFavorite(
               preferitiList.find((el) => el.id === props.prodotto.id).id
             );
           } else {
             if (!token) {
-              setDialogEliminazioneFlag(true)
-            }else{
+              setDialogEliminazioneFlag(true);
+            } else {
+              loadingOn()
               addToFavorite(props.prodotto.id);
             }
-            
           }
         }}
         className="favoriteIcon"

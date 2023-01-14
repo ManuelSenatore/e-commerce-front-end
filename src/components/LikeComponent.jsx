@@ -99,7 +99,7 @@ const LikeComponent = (props) => {
         handleClose={handleClose}
       />
       <FavoriteIcon
-        style={{ cursor: "pointer", fontSize: "2rem", zIndex: "100" }}
+        style={{ cursor: "pointer", fontSize: "2rem", zIndex: "1" }}
         color={
           preferitiList.some((el) => el.id === props.prodotto.id) ? "error" : ""
         }

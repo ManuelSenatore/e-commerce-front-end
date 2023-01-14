@@ -40,6 +40,7 @@ const DettagliComponent = () => {
       {data && (
         <Row>
           <Col
+            style={{zIndex: 2}}
             xs={12}
             sm={12}
             md={12}
@@ -86,7 +87,7 @@ const DettagliComponent = () => {
             </span>
             <p>{data.descrizione}</p>
             <div
-              style={{ width: "100%", zIndex: -1 }}
+              style={{ width: "100%" }}
               className="d-flex align-items-center justify-content-evenly mb-4"
             >
               <div className="divRelative">

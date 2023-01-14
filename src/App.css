@@ -13,6 +13,7 @@
 .navBar {
   background: #b11616 !important;
   box-shadow: inset 19px 19px 39px #5a0b0b, inset -19px -19px 39px #ff2121 !important;
+  z-index: 10;
 }
 
 .pageContainer {
